@@ -30,24 +30,13 @@ const getResultStatement = (bias, test) => {
     case BIAS.NONE:
       return (
         <p className="result-headline">
-          Your responses suggest no automatic association between{" "}
-          <span className="target">{targetType}</span> and{" "}
-          <span className="category">{categoryType}</span>.
+          Thank you for responding! Please wait for confirmation that your data has been saved before closing this tab.
         </p>
       );
     case BIAS.COMPATIBLE:
       return (
         <h4 className="result-headline">
-          Your responses suggest an automatic association for{" "}
-          <span className="target">
-            {toTitleCase(targetsInCompatibleOrder[0])}
-          </span>{" "}
-          with <span className="category">{toTitleCase(firstCategory)}</span>{" "}
-          and{" "}
-          <span className="target">
-            {toTitleCase(targetsInCompatibleOrder[1])}
-          </span>{" "}
-          with <span className="category">{toTitleCase(secondCategory)}</span>.
+          Thank you for responding! Please wait for confirmation that your data has been saved before closing this tab.
         </h4>
       );
     case BIAS.INCOMPATIBLE:
@@ -56,16 +45,7 @@ const getResultStatement = (bias, test) => {
         .reverse();
       return (
         <h4 className="result-headline">
-          Your responses suggest an automatic association for{" "}
-          <span className="target">
-            {toTitleCase(targetsInIncompatibleOrder[0])}
-          </span>{" "}
-          with <span className="category">{toTitleCase(firstCategory)}</span>{" "}
-          and{" "}
-          <span className="target">
-            {toTitleCase(targetsInIncompatibleOrder[1])}
-          </span>{" "}
-          with <span className="category">{toTitleCase(secondCategory)}</span>.
+          Thank you for responding! Please wait for confirmation that your data has been saved before closing this tab.
         </h4>
       );
     default:
@@ -132,8 +112,6 @@ class Results extends Component {
       <div>
         <h2>Results</h2>
         {resultStatement}
-        <p>More info about results to come...</p>
-        <Link to="/home">Back to home</Link>
       </div>
     );
   }
