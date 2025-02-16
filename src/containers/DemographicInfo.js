@@ -123,6 +123,7 @@ const surveyJson = {
       type: "text",
       inputType: "number",
       placeholder: "R0",
+      min: 0,
       name: "wage",
       title: "How much money do you aproximately make in a given year?",
     },
