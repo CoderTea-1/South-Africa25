@@ -42,7 +42,7 @@ const DemographicForm = () => {
     // Income validation (must be positive)
     if (
       formData.income &&
-      (isNaN(formData.income) || Number(formData.income) <= 0)
+      (isNaN(formData.income) || Number(formData.income) = 0)
     ) {
       tempErrors.income = "Income must be a positive number";
     }
