@@ -9,6 +9,7 @@ const DemographicForm = () => {
   const history = useHistory();
 
   const [formData, setFormData] = useState({
+    whatsappNumber: "",
     gender: "",
     age: "",
     education: "",
@@ -24,6 +25,14 @@ const DemographicForm = () => {
 
   const validateInputs = () => {
     let tempErrors = {};
+
+    // Phone number validation (South African format)
+    if (
+      formData.whatsappNumber &&
+      !/^\+27\s\(\d{2}\)\s\d{3}-\d{4}$/.test(formData.whatsappNumber)
+    ) {
+      tempErrors.whatsappNumber = "Invalid format. Use +27 (00) 000-0000";
+    }
 
     // Age validation (must be positive)
     if (formData.age && (isNaN(formData.age) || Number(formData.age) <= 0)) {
@@ -76,6 +85,26 @@ const DemographicForm = () => {
     <div className="container">
       <h4 className="center-align">Demographic Information</h4>
       <form onSubmit={handleSubmit}>
+        {/* WhatsApp Number */}
+        <div className="card">
+          <div className="card-content">
+            <label htmlFor="whatsappNumber">
+              Enter your WhatsApp number (optional)
+            </label>
+            <input
+              type="tel"
+              id="whatsappNumber"
+              name="whatsappNumber"
+              value={formData.whatsappNumber}
+              onChange={handleChange}
+              placeholder="+27 (00) 000-0000"
+            />
+            {errors.whatsappNumber && (
+              <p className="error-text">{errors.whatsappNumber}</p>
+            )}
+          </div>
+        </div>
+
         {/* Gender */}
         <div className="card">
           <div className="card-content">
