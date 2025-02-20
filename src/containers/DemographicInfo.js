@@ -15,7 +15,22 @@ const surveyJson = {
       type: "html",
       html: "<h2><b>Demographic Information</b></h2>",
     },
-
+    {
+      name: "phone",
+      type: "text",
+      title:
+        "Enter your whatsapp number",
+      inputType: "tel",
+      placeholder: "+27 (00) 000-0000",
+      autocomplete: "tel",
+      validators: [
+        {
+          type: "regex",
+          regex: "\\+[0-9]{2} \\([0-9]{2}\\) [0-9]{3}-[0-9]{4}",
+          text: "Phone number must be in the following format: +27 (00) 000-0000",
+        },
+      ],
+    },
     {
       name: "gender",
       type: "dropdown",
