@@ -1,22 +1,52 @@
-import React from "react";
-import { render } from "react-dom";
-import { Provider } from "react-redux";
-import { createStore } from "redux";
+export const START_TEST = "START_TEST";
+export const START_BLOCK = "START_BLOCK";
+export const SET_COMPATIBLE_MILLISECONDS = "SET_COMPATIBLE_MILLISECONDS";
+export const SET_INCOMPATIBLE_MILLISECONDS = "SET_INCOMPATIBLE_MILLISECONDS";
+export const FINISH_BLOCK = "FINISH_BLOCK";
+export const FINISH_TEST = "FINISH_TEST";
+export const RESET_TEST = "RESET_TEST";
+export const STORE_TEST_RESULT = "STORE_TEST_RESULT";
+export const UPDATE_DEMOGRAPHIC_FORM = "UPDATE_DEMOGRAPHIC_FORM";
 
-import App from "./App";
-import rootReducer from "./reducers";
-import * as serviceWorker from "./serviceWorker";
+export function updateDemographicForm(formData) {
+  return {
+    type: UPDATE_DEMOGRAPHIC_FORM,
+    payload: formData,
+  };
+}
 
-const store = createStore(rootReducer);
+export const storeTestResult = (testResult) => ({
+  type: STORE_TEST_RESULT,
+  payload: testResult,
+});
 
-render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById("root")
-);
+export const startTest = (test) => ({
+  type: START_TEST,
+  test,
+});
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+export const startBlock = () => ({
+  type: START_BLOCK,
+});
+
+export const setCompatibleMilliseconds = (compatibleMilliseconds) => ({
+  type: SET_COMPATIBLE_MILLISECONDS,
+  compatibleMilliseconds,
+});
+
+export const setIncompatibleMilliseconds = (incompatibleMilliseconds) => ({
+  type: SET_INCOMPATIBLE_MILLISECONDS,
+  incompatibleMilliseconds,
+});
+
+export const finishBlock = () => ({
+  type: FINISH_BLOCK,
+});
+
+export const finishTest = () => ({
+  type: FINISH_TEST,
+});
+
+export const resetTest = () => ({
+  type: RESET_TEST,
+});
